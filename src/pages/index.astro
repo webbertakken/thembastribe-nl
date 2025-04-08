@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { motion } from 'framer-motion';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Themba - A Rhodesian Ridgeback's Story">
+	<section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-b from-dark-900/80 to-dark-900/40 z-10"></div>
+		<img
+			src="/images/themba-hero.jpg"
+			alt="Themba the Rhodesian Ridgeback"
+			class="absolute inset-0 w-full h-full object-cover"
+		/>
+		<div class="relative z-20 text-center px-4">
+			<motion.h1
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8 }}
+				class="text-5xl md:text-7xl font-bold text-white mb-6"
+			>
+				Meet Themba
+			</motion.h1>
+			<motion.p
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, delay: 0.2 }}
+				class="text-xl md:text-2xl text-dark-100 mb-8 max-w-2xl mx-auto"
+			>
+				A beautiful Rhodesian Ridgeback with a story to tell and puppies on the way
+			</motion.p>
+			<motion.div
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, delay: 0.4 }}
+				class="flex gap-4 justify-center"
+			>
+				<a href="/story" class="btn btn-primary">Read Her Story</a>
+				<a href="/puppies" class="btn btn-outline">Future Puppies</a>
+			</motion.div>
+		</div>
+	</section>
+
+	<section class="py-20">
+		<div class="grid md:grid-cols-2 gap-12 items-center">
+			<motion.div
+				initial={{ opacity: 0, x: -20 }}
+				whileInView={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.8 }}
+				viewport={{ once: true }}
+				class="space-y-6"
+			>
+				<h2 class="section-title">About Themba</h2>
+				<p class="text-dark-300 text-lg">
+					Themba is a stunning Rhodesian Ridgeback with a gentle soul and a heart of gold. Her name means "hope" in Zulu, and she brings joy and love to everyone she meets.
+				</p>
+				<p class="text-dark-300 text-lg">
+					As she prepares for her first litter of puppies, we're excited to share her journey and the wonderful qualities of the Rhodesian Ridgeback breed.
+				</p>
+				<a href="/about" class="btn btn-primary inline-block">Learn More</a>
+			</motion.div>
+			<motion.div
+				initial={{ opacity: 0, x: 20 }}
+				whileInView={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.8 }}
+				viewport={{ once: true }}
+				class="relative"
+			>
+				<img
+					src="/images/themba-portrait.jpg"
+					alt="Themba's portrait"
+					class="rounded-2xl shadow-2xl"
+				/>
+			</motion.div>
+		</div>
+	</section>
+
+	<section class="py-20 bg-dark-800">
+		<div class="text-center mb-12">
+			<h2 class="section-title">Meet Motsi</h2>
+			<p class="text-dark-300 text-lg max-w-2xl mx-auto">
+				The proud father-to-be, Motsi van de Palsenborghœve, brings his own unique qualities to this special breeding.
+			</p>
+		</div>
+		<div class="grid md:grid-cols-2 gap-12 items-center">
+			<motion.div
+				initial={{ opacity: 0, x: -20 }}
+				whileInView={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.8 }}
+				viewport={{ once: true }}
+				class="relative"
+			>
+				<img
+					src="/images/motsi-portrait.webp"
+					alt="Motsi's portrait"
+					class="rounded-2xl shadow-2xl"
+				/>
+			</motion.div>
+			<motion.div
+				initial={{ opacity: 0, x: 20 }}
+				whileInView={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.8 }}
+				viewport={{ once: true }}
+				class="space-y-6"
+			>
+				<h3 class="text-2xl font-bold text-primary-400">Motsi van de Palsenborghœve</h3>
+				<p class="text-dark-300 text-lg">
+					Motsi is a magnificent Rhodesian Ridgeback with an impressive lineage and outstanding temperament. His presence and character perfectly complement Themba's qualities.
+				</p>
+				<p class="text-dark-300 text-lg">
+					Together, Themba and Motsi represent the best qualities of the Rhodesian Ridgeback breed, promising exceptional puppies that will bring joy to their future families.
+				</p>
+			</motion.div>
+		</div>
+	</section>
+</Layout>

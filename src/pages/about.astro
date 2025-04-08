@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { motion } from 'framer-motion';
+---
+
+<Layout title="About Us">
+  <main class="container mx-auto px-4 py-16">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      class="max-w-4xl mx-auto"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-8">About Us</h1>
+
+      <div class="prose prose-invert prose-lg">
+        <h2 class="text-3xl font-semibold text-white mt-8 mb-4">Our Mission</h2>
+        <p class="text-xl mb-6">
+          We are dedicated to preserving and improving the Rhodesian Ridgeback breed through responsible breeding practices. Our focus is on producing healthy, well-tempered puppies that embody the best qualities of this magnificent breed.
+        </p>
+
+        <h2 class="text-3xl font-semibold text-white mt-8 mb-4">The Rhodesian Ridgeback</h2>
+        <p class="text-xl mb-6">
+          The Rhodesian Ridgeback is a unique and versatile breed, originally developed in southern Africa. Known for their distinctive ridge of hair along their back, these dogs are athletic, intelligent, and make excellent companions for active families.
+        </p>
+
+        <h2 class="text-3xl font-semibold text-white mt-8 mb-4">Our Breeding Program</h2>
+        <p class="text-xl mb-6">
+          We carefully select our breeding pairs based on health, temperament, and conformation to breed standards. All our dogs undergo thorough health testing and are raised in a family environment to ensure they develop into well-adjusted adults.
+        </p>
+
+        <h2 class="text-3xl font-semibold text-white mt-8 mb-4">Our Commitment</h2>
+        <p class="text-xl">
+          We are committed to transparency and maintaining the highest standards in our breeding program. We provide ongoing support to puppy families and are always available to answer questions about the breed and our breeding practices.
+        </p>
+      </div>
+    </motion.div>
+  </main>
+</Layout>
