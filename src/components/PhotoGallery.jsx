@@ -21,17 +21,17 @@ const photoData = [
     image: "/images/motsi-portrait.jpg",
     thumbnail: "/images/motsi-portrait.jpg",
     category: "motsi",
-    featured: false
+    featured: true
   },
   {
     id: 3,
-    title: "Themba en Motsi samen",
-    description: "De toekomstige ouders van het nestje",
-    date: "2023-06-10",
+    title: "Themba in Oostenrijk",
+    description: "Heerlijk genieten van het uitzicht",
+    date: "2024-08-10",
     image: "/images/themba-hero.jpg",
     thumbnail: "/images/themba-hero.jpg",
-    category: "beide",
-    featured: true
+    category: "themba",
+    featured: false
   },
   {
     id: 4,
@@ -41,13 +41,79 @@ const photoData = [
     image: "/images/motsi-info.webp",
     thumbnail: "/images/motsi-info.webp",
     category: "motsi",
+    featured: false
+  },
+  // New photos from August 2024
+  {
+    id: 5,
+    title: "Themba aan het strandje",
+    description: "Themba geniet van een mooie zomerdag bij het water",
+    date: "2024-08-01",
+    image: "/images/20240801_204858.jpg",
+    thumbnail: "/images/20240801_204858.jpg",
+    category: "themba",
+    featured: false
+  },
+  {
+    id: 6,
+    title: "Themba and Bosi",
+    description: "Samen lekker camperen in de campervan",
+    date: "2024-08-02",
+    image: "/images/20240802_122556.jpg",
+    thumbnail: "/images/20240802_122556.jpg",
+    category: "themba",
+    featured: false
+  },
+  {
+    id: 7,
+    title: "Themba met Bosi in het bos",
+    description: "Samen op avontuur tijdens een boswandeling",
+    date: "2024-08-10",
+    image: "/images/20240810_114538.jpg",
+    thumbnail: "/images/20240810_114538.jpg",
+    category: "themba",
+    featured: false
+  },
+  {
+    id: 8,
+    title: "Spelen bij de waterrand",
+    description: "Themba en Bosi genieten van het water tijdens een warme dag",
+    date: "2024-08-10",
+    image: "/images/20240810_121156.jpg",
+    thumbnail: "/images/20240810_121156.jpg",
+    category: "themba",
+    featured: false
+  },
+  {
+    id: 9,
+    title: "Ochtendwandeling",
+    description: "Vroeg in de ochtend, klaar voor een nieuwe dag",
+    date: "2024-08-20",
+    image: "/images/20240820_085023.jpg",
+    thumbnail: "/images/20240820_085023.jpg",
+    category: "themba",
+    featured: false
+  },
+  {
+    id: 10,
+    title: "Themba bij zonsondergang",
+    description: "Een prachtige afsluiting van een fijne dag samen",
+    date: "2024-08-20",
+    image: "/images/20240820_154700.jpg",
+    thumbnail: "/images/20240820_154700.jpg",
+    category: "themba",
     featured: true
   }
 ];
 
 export default function PhotoGallery() {
-  const [photos, setPhotos] = useState(photoData);
-  const [filteredPhotos, setFilteredPhotos] = useState(photoData);
+  // Sort photos by date, newest first
+  const [photos, setPhotos] = useState(() =>
+    [...photoData].sort((a, b) => new Date(b.date) - new Date(a.date))
+  );
+  const [filteredPhotos, setFilteredPhotos] = useState(() =>
+    [...photoData].sort((a, b) => new Date(b.date) - new Date(a.date))
+  );
   const [activeFilter, setActiveFilter] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -174,7 +240,7 @@ export default function PhotoGallery() {
       </div>
 
       {/* Photo Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredPhotos.map((photo, index) => (
           <motion.div
             key={photo.id}
