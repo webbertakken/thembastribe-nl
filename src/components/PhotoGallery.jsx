@@ -1,36 +1,46 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Sample photo data
+// Photo data using real images from public/images folder
 const photoData = [
   {
     id: 1,
-    title: "Themba in het park",
-    description: "Een prachtige dag in het park waar Themba geniet van de zon",
-    date: "2025-04-15",
-    image: "https://placehold.co/1200x800/amber/white?text=Themba+in+het+park",
-    thumbnail: "https://placehold.co/400x300/amber/white?text=Themba+thumbnail",
+    title: "Themba in de tuin",
+    description: "Themba geniet van een zonnige dag in de tuin",
+    date: "2025-04-08",
+    image: "/images/themba-portrait.png",
+    thumbnail: "/images/themba-portrait.png",
     category: "themba",
     featured: true
   },
   {
     id: 2,
-    title: "Motsi bij het meer",
-    description: "Motsi geniet van een verkoelende duik in het meer",
-    date: "2025-04-16",
-    image: "https://placehold.co/1200x800/amber/white?text=Motsi+bij+het+meer",
-    thumbnail: "https://placehold.co/400x300/amber/white?text=Motsi+thumbnail",
+    title: "Motsi van de Palsenborghœve",
+    description: "Motsi, kampioen en trotse vader van het aankomende nestje",
+    date: "2023-05-20",
+    image: "/images/motsi-portrait.jpg",
+    thumbnail: "/images/motsi-portrait.jpg",
     category: "motsi",
     featured: false
   },
   {
     id: 3,
     title: "Themba en Motsi samen",
-    description: "Een mooie wandeling in het bos met beide honden",
-    date: "2025-06-10",
-    image: "https://placehold.co/1200x800/amber/white?text=Themba+en+Motsi+samen",
-    thumbnail: "https://placehold.co/400x300/amber/white?text=Samen+thumbnail",
+    description: "De toekomstige ouders van het nestje",
+    date: "2023-06-10",
+    image: "/images/themba-hero.jpg",
+    thumbnail: "/images/themba-hero.jpg",
     category: "beide",
+    featured: true
+  },
+  {
+    id: 4,
+    title: "Motsi's officiële informatie",
+    description: "Stamboom en gezondheidsgegevens van Motsi",
+    date: "2021-08-01",
+    image: "/images/motsi-info.webp",
+    thumbnail: "/images/motsi-info.webp",
+    category: "motsi",
     featured: true
   }
 ];
@@ -164,7 +174,7 @@ export default function PhotoGallery() {
       </div>
 
       {/* Photo Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {filteredPhotos.map((photo, index) => (
           <motion.div
             key={photo.id}
@@ -178,9 +188,10 @@ export default function PhotoGallery() {
               onClick={() => openLightbox(index)}
             >
               <img
-                src={photo.thumbnail || photo.image}
+                src={photo.thumbnail}
                 alt={photo.title}
                 className="w-full h-64 object-cover"
+                loading="lazy"
               />
               {photo.featured && (
                 <span className="absolute top-2 right-2 bg-amber-600 text-white text-xs px-2 py-1 rounded-full">
@@ -190,9 +201,10 @@ export default function PhotoGallery() {
             </div>
             <div className="p-4">
               <h3 className="font-semibold text-amber-800 mb-1">{photo.title}</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 mb-2">
                 {new Date(photo.date).toLocaleDateString('nl-NL')}
               </p>
+              <p className="text-sm text-gray-700">{photo.description}</p>
             </div>
           </motion.div>
         ))}
@@ -229,18 +241,28 @@ export default function PhotoGallery() {
               key={currentPhotoIndex}
               src={filteredPhotos[currentPhotoIndex].image}
               alt={filteredPhotos[currentPhotoIndex].title}
-              className="max-h-[90vh] max-w-[90vw] object-contain"
+              className="max-h-[85vh] max-w-[85vw] object-contain"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             />
-            <div className="absolute bottom-6 left-0 right-0 text-center text-white bg-black bg-opacity-50 py-2">
-              {filteredPhotos[currentPhotoIndex].title} - {new Date(filteredPhotos[currentPhotoIndex].date).toLocaleDateString('nl-NL')}
+            <div className="absolute bottom-6 left-0 right-0 text-center">
+              <div className="bg-black bg-opacity-70 mx-auto p-3 max-w-2xl">
+                <h2 className="text-white text-xl mb-1">{filteredPhotos[currentPhotoIndex].title}</h2>
+                <p className="text-gray-300 text-sm">{filteredPhotos[currentPhotoIndex].description}</p>
+                <p className="text-gray-400 text-xs mt-2">{new Date(filteredPhotos[currentPhotoIndex].date).toLocaleDateString('nl-NL')}</p>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {filteredPhotos.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-gray-500">Geen foto's gevonden in deze categorie.</p>
+        </div>
+      )}
     </div>
   );
 }
