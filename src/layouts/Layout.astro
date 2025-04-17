@@ -9,7 +9,7 @@ import "../styles/global.css";
 ---
 
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -18,11 +18,11 @@ import "../styles/global.css";
     <meta name="description" content={description} />
     <title>{title} | Themba's Tribe</title>
   </head>
-  <body class="min-h-screen bg-slate-50 text-slate-800">
-    <header class="bg-amber-900 text-white shadow-md">
+  <body class="flex flex-col min-h-screen bg-slate-50 text-slate-800 md:pl-[calc(100vw-100%)]">
+    <header class="bg-amber-900 text-white shadow-md -ml-[calc(100vw-100%)] pl-[calc(100vw-100%)]">
       <div class="container mx-auto p-4">
         <nav class="flex justify-between items-center">
-          <div class="text-2xl font-bold">Themba's Tribe</div>
+          <a href="/" class="text-2xl font-bold hover:text-amber-200 transition-colors">Themba's Tribe</a>
           <ul class="flex space-x-6">
             <li><a href="/" class="hover:text-amber-200 transition-colors">Over Ons</a></li>
             <li><a href="/verhaal" class="hover:text-amber-200 transition-colors">Verhaal</a></li>
@@ -32,10 +32,10 @@ import "../styles/global.css";
         </nav>
       </div>
     </header>
-    <main>
+    <main class="flex-grow">
       <slot />
     </main>
-    <footer class="bg-amber-900 text-white mt-12 py-6">
+    <footer class="bg-amber-900 text-white mt-auto py-6 -ml-[calc(100vw-100%)] pl-[calc(100vw-100%)]">
       <div class="container mx-auto px-4">
         <div class="text-center">
           <p>© {new Date().getFullYear()} Themba's Tribe</p>
