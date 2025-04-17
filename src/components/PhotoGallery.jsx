@@ -107,13 +107,20 @@ const photoData = [
 ];
 
 export default function PhotoGallery() {
-  // Sort photos by date, newest first
-  const [photos, setPhotos] = useState(() =>
-    [...photoData].sort((a, b) => new Date(b.date) - new Date(a.date))
-  );
-  const [filteredPhotos, setFilteredPhotos] = useState(() =>
-    [...photoData].sort((a, b) => new Date(b.date) - new Date(a.date))
-  );
+  // Sort photos by featured status first, then by date
+  const sortPhotos = (photos) => {
+    return [...photos].sort((a, b) => {
+      // First sort by featured status (featured photos first)
+      if (a.featured && !b.featured) return -1;
+      if (!a.featured && b.featured) return 1;
+
+      // Then sort by date (newest first)
+      return new Date(b.date) - new Date(a.date);
+    });
+  };
+
+  const [photos, setPhotos] = useState(() => sortPhotos(photoData));
+  const [filteredPhotos, setFilteredPhotos] = useState(() => sortPhotos(photoData));
   const [activeFilter, setActiveFilter] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -123,7 +130,7 @@ export default function PhotoGallery() {
     if (activeFilter === 'all') {
       setFilteredPhotos(photos);
     } else {
-      setFilteredPhotos(photos.filter(photo => photo.category === activeFilter));
+      setFilteredPhotos(sortPhotos(photos.filter(photo => photo.category === activeFilter)));
     }
   }, [activeFilter, photos]);
 
