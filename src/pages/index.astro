@@ -1,118 +1,74 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { motion } from 'framer-motion';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { motion } from "framer-motion";
 ---
 
-<Layout title="Themba - A Rhodesian Ridgeback's Story">
-	<section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
-		<div class="absolute inset-0 bg-gradient-to-b from-dark-900/80 to-dark-900/40 z-10"></div>
-		<img
-			src="/images/themba-hero.jpg"
-			alt="Themba the Rhodesian Ridgeback"
-			class="absolute inset-0 w-full h-full object-cover"
-		/>
-		<div class="relative z-20 text-center px-4">
-			<motion.h1
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8 }}
-				class="text-5xl md:text-7xl font-bold text-white mb-6"
-			>
-				Meet Themba
-			</motion.h1>
-			<motion.p
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8, delay: 0.2 }}
-				class="text-xl md:text-2xl text-dark-100 mb-8 max-w-2xl mx-auto"
-			>
-				A beautiful Rhodesian Ridgeback with a story to tell and puppies on the way
-			</motion.p>
-			<motion.div
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8, delay: 0.4 }}
-				class="flex gap-4 justify-center"
-			>
-				<a href="/story" class="btn btn-primary">Read Her Story</a>
-				<a href="/puppies" class="btn btn-outline">Future Puppies</a>
-			</motion.div>
-		</div>
-	</section>
+<Layout title="Over Ons">
+  <section class="py-12 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+          <h1 class="text-4xl md:text-5xl font-bold text-amber-900 mb-6">Welkom bij Themba's Tribe</h1>
+          <p class="text-lg mb-6">
+            Wij zijn Themba en Motsi, twee trotse Rhodesian Ridgebacks met een bijzonder verhaal.
+            Themba krijgt binnenkort haar eerste nestje pups en wij kunnen niet wachten om deze
+            avontuurlijke reis met jullie te delen.
+          </p>
+          <p class="text-lg mb-6">
+            Als ras staan Rhodesian Ridgebacks bekend om hun loyaliteit, intelligentie en natuurlijk
+            de karakteristieke ridge op onze rug. Ontdek meer over ons karakter, ons leven samen en
+            alles over het aankomende nestje.
+          </p>
+          <div class="flex gap-4">
+            <a href="/verhaal" class="bg-amber-800 hover:bg-amber-700 text-white px-6 py-3 rounded-lg transition-colors">
+              Ons Verhaal
+            </a>
+            <a href="/pups" class="bg-amber-600 hover:bg-amber-500 text-white px-6 py-3 rounded-lg transition-colors">
+              De Pups
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <div class="relative rounded-lg overflow-hidden shadow-xl">
+            <!-- Placeholder for the actual image of Themba and Motsi -->
+            <img
+              src="https://placehold.co/800x600/amber/white?text=Themba+en+Motsi"
+              alt="Themba en Motsi, onze Rhodesian Ridgebacks"
+              class="w-full h-auto rounded-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<section class="py-20">
-		<div class="grid md:grid-cols-2 gap-12 items-center">
-			<motion.div
-				initial={{ opacity: 0, x: -20 }}
-				whileInView={{ opacity: 1, x: 0 }}
-				transition={{ duration: 0.8 }}
-				viewport={{ once: true }}
-				class="space-y-6"
-			>
-				<h2 class="section-title">About Themba</h2>
-				<p class="text-dark-300 text-lg">
-					Themba is a stunning Rhodesian Ridgeback with a gentle soul and a heart of gold. Her name means "hope" in Zulu, and she brings joy and love to everyone she meets.
-				</p>
-				<p class="text-dark-300 text-lg">
-					As she prepares for her first litter of puppies, we're excited to share her journey and the wonderful qualities of the Rhodesian Ridgeback breed.
-				</p>
-				<a href="/about" class="btn btn-primary inline-block">Learn More</a>
-			</motion.div>
-			<motion.div
-				initial={{ opacity: 0, x: 20 }}
-				whileInView={{ opacity: 1, x: 0 }}
-				transition={{ duration: 0.8 }}
-				viewport={{ once: true }}
-				class="relative"
-			>
-				<img
-					src="/images/themba-portrait.jpg"
-					alt="Themba's portrait"
-					class="rounded-2xl shadow-2xl"
-				/>
-			</motion.div>
-		</div>
-	</section>
-
-	<section class="py-20 bg-dark-800">
-		<div class="text-center mb-12">
-			<h2 class="section-title">Meet Motsi</h2>
-			<p class="text-dark-300 text-lg max-w-2xl mx-auto">
-				The proud father-to-be, Motsi van de Palsenborghœve, brings his own unique qualities to this special breeding.
-			</p>
-		</div>
-		<div class="grid md:grid-cols-2 gap-12 items-center">
-			<motion.div
-				initial={{ opacity: 0, x: -20 }}
-				whileInView={{ opacity: 1, x: 0 }}
-				transition={{ duration: 0.8 }}
-				viewport={{ once: true }}
-				class="relative"
-			>
-				<img
-					src="/images/motsi-portrait.webp"
-					alt="Motsi's portrait"
-					class="rounded-2xl shadow-2xl"
-				/>
-			</motion.div>
-			<motion.div
-				initial={{ opacity: 0, x: 20 }}
-				whileInView={{ opacity: 1, x: 0 }}
-				transition={{ duration: 0.8 }}
-				viewport={{ once: true }}
-				class="space-y-6"
-			>
-				<h3 class="text-2xl font-bold text-primary-400">Motsi van de Palsenborghœve</h3>
-				<p class="text-dark-300 text-lg">
-					Motsi is a magnificent Rhodesian Ridgeback with an impressive lineage and outstanding temperament. His presence and character perfectly complement Themba's qualities.
-				</p>
-				<p class="text-dark-300 text-lg">
-					Together, Themba and Motsi represent the best qualities of the Rhodesian Ridgeback breed, promising exceptional puppies that will bring joy to their future families.
-				</p>
-			</motion.div>
-		</div>
-	</section>
+  <section class="py-12 bg-amber-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-amber-900 mb-8 text-center">Over Het Ras</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-amber-800 mb-3">Geschiedenis</h3>
+          <p>
+            De Rhodesian Ridgeback komt oorspronkelijk uit Zuid-Afrika en werd gefokt om leeuwen op te sporen
+            en in bedwang te houden totdat de jager arriveerde. De kenmerkende ridge op de rug is een uniek
+            genetisch kenmerk.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-amber-800 mb-3">Karakter</h3>
+          <p>
+            Ridgebacks zijn intelligent, loyaal en onafhankelijk. Ze zijn geweldige gezinshonden, liefdevol
+            naar hun familie maar soms gereserveerd naar vreemden. Ze zijn ook bekend om hun beschermende aard.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-amber-800 mb-3">Uiterlijk</h3>
+          <p>
+            Gespierd en atletisch, met een korte, glanzende vacht in tinten van licht tarwe tot rood tarwe.
+            De ridge op de rug bestaat uit haren die in de tegenovergestelde richting groeien als de rest van de vacht.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
