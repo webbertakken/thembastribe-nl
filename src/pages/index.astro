@@ -2,7 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import { motion } from "framer-motion";
 import { Image } from 'astro:assets';
+import ImageLightbox from '../components/ImageLightbox';
 import thembaHero from '../assets/optimized/themba-hero.webp';
+
+// Prepare images for lightbox
+const lightboxImages = [
+  {
+    src: thembaHero.src,
+    alt: 'Themba en Motsi, onze Rhodesian Ridgebacks',
+    title: 'Themba in Oostenrijk',
+    description: 'Heerlijk genieten van het uitzicht in de Oostenrijkse bergen'
+  }
+];
 ---
 
 <Layout title="Over ons">
@@ -32,15 +43,17 @@ import thembaHero from '../assets/optimized/themba-hero.webp';
         </div>
         <div class="md:w-1/2">
           <div class="relative rounded-lg overflow-hidden shadow-xl">
-            <Image
-              src={thembaHero}
-              alt="Themba en Motsi, onze Rhodesian Ridgebacks"
-              width={800}
-              height={600}
-              format="webp"
-              quality={80}
-              class="w-full h-auto rounded-lg"
-            />
+            <div class="cursor-pointer hover:opacity-90 transition-opacity" onclick={`window.openImageLightbox('${thembaHero.src}')`}>
+              <Image
+                src={thembaHero}
+                alt="Themba en Motsi, onze Rhodesian Ridgebacks"
+                width={800}
+                height={600}
+                format="webp"
+                quality={80}
+                class="w-full h-auto rounded-lg"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -132,3 +145,25 @@ import thembaHero from '../assets/optimized/themba-hero.webp';
     </div>
   </section>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let isLightboxOpen = false;
+
+    // Get hero image element
+    const heroImage = document.querySelector('.lightbox-trigger');
+    if (!heroImage) return;
+
+    // Add click event to the hero image
+    heroImage.addEventListener('click', () => {
+      const index = parseInt(heroImage.getAttribute('data-index') || '0', 10);
+
+      // Create and dispatch custom event
+      const event = new CustomEvent('openLightbox', {
+        detail: { index, isOpen: true }
+      });
+      document.dispatchEvent(event);
+      isLightboxOpen = true;
+    });
+  });
+</script>

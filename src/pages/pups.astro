@@ -3,6 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import { motion } from "framer-motion";
 import { Image } from 'astro:assets';
 import motsiInfo from '../assets/optimized/motsi-info.webp';
+
+// Prepare images for lightbox
+const lightboxImages = [
+  {
+    src: motsiInfo.src,
+    alt: "Motsi's stamboom informatie",
+    title: "Motsi's registratiegegevens",
+    description: "Officiële stamboom en gezondheidsgegevens van Motsi, de vader van ons aankomende nestje"
+  }
+];
 ---
 
 <Layout title="Pups">
@@ -49,15 +59,17 @@ import motsiInfo from '../assets/optimized/motsi-info.webp';
             </p>
           </div>
           <div class="md:w-1/3">
-            <Image
-              src={motsiInfo}
-              alt="Motsi's stamboom informatie"
-              width={400}
-              height={500}
-              format="webp"
-              quality={75}
-              class="w-full h-auto rounded-lg shadow-md"
-            />
+            <div class="cursor-pointer hover:opacity-90 transition-opacity" onclick={`window.openImageLightbox('${motsiInfo.src}')`}>
+              <Image
+                src={motsiInfo}
+                alt="Motsi's stamboom informatie"
+                width={400}
+                height={500}
+                format="webp"
+                quality={75}
+                class="w-full h-auto rounded-lg shadow-md"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -116,3 +128,25 @@ import motsiInfo from '../assets/optimized/motsi-info.webp';
     </div>
   </section>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let isLightboxOpen = false;
+
+    // Get info image element
+    const infoImage = document.querySelector('.lightbox-trigger');
+    if (!infoImage) return;
+
+    // Add click event to the info image
+    infoImage.addEventListener('click', () => {
+      const index = parseInt(infoImage.getAttribute('data-index') || '0', 10);
+
+      // Create and dispatch custom event
+      const event = new CustomEvent('openLightbox', {
+        detail: { index, isOpen: true }
+      });
+      document.dispatchEvent(event);
+      isLightboxOpen = true;
+    });
+  });
+</script>

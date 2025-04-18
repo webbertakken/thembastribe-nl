@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import GalleryLightbox from './GalleryLightbox';
 
 // Import optimized images
 import thembaPortraitOpt from '../assets/optimized/themba-portrait.webp';
@@ -167,52 +168,21 @@ export default function PhotoGallery() {
   const openLightbox = (index) => {
     setCurrentPhotoIndex(index);
     setLightboxOpen(true);
-    document.body.style.overflow = 'hidden';
   };
 
   // Close lightbox
   const closeLightbox = () => {
     setLightboxOpen(false);
-    document.body.style.overflow = 'auto';
   };
 
-  // Navigate to previous photo
-  const prevPhoto = () => {
-    setCurrentPhotoIndex((prevIndex) =>
-      prevIndex === 0 ? filteredPhotos.length - 1 : prevIndex - 1
-    );
-  };
-
-  // Navigate to next photo
-  const nextPhoto = () => {
-    setCurrentPhotoIndex((prevIndex) =>
-      prevIndex === filteredPhotos.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // Handle keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!lightboxOpen) return;
-
-      switch (e.key) {
-        case 'Escape':
-          closeLightbox();
-          break;
-        case 'ArrowLeft':
-          prevPhoto();
-          break;
-        case 'ArrowRight':
-          nextPhoto();
-          break;
-        default:
-          break;
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxOpen]);
+  // Format photos for lightbox
+  const lightboxImages = filteredPhotos.map(photo => ({
+    src: photo.image,
+    alt: photo.title,
+    title: photo.title,
+    description: photo.description,
+    date: photo.date
+  }));
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -309,53 +279,13 @@ export default function PhotoGallery() {
         ))}
       </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxOpen && filteredPhotos.length > 0 && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <button
-              className="absolute top-6 right-6 text-white text-4xl hover:text-amber-300"
-              onClick={closeLightbox}
-            >
-              &times;
-            </button>
-            <button
-              className="absolute left-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-amber-300"
-              onClick={prevPhoto}
-            >
-              &#10094;
-            </button>
-            <button
-              className="absolute right-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-amber-300"
-              onClick={nextPhoto}
-            >
-              &#10095;
-            </button>
-            <motion.img
-              key={currentPhotoIndex}
-              src={filteredPhotos[currentPhotoIndex].image.src || filteredPhotos[currentPhotoIndex].image}
-              alt={filteredPhotos[currentPhotoIndex].title}
-              className="max-h-[85vh] max-w-[85vw] object-contain"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-            <div className="absolute bottom-6 left-0 right-0 text-center">
-              <div className="bg-black bg-opacity-70 mx-auto p-3 max-w-2xl">
-                <h2 className="text-white text-xl mb-1">{filteredPhotos[currentPhotoIndex].title}</h2>
-                <p className="text-gray-300 text-sm">{filteredPhotos[currentPhotoIndex].description}</p>
-                <p className="text-gray-400 text-xs mt-2">{new Date(filteredPhotos[currentPhotoIndex].date).toLocaleDateString('nl-NL')}</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Use the external GalleryLightbox component */}
+      <GalleryLightbox
+        images={lightboxImages}
+        initialIndex={currentPhotoIndex}
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+      />
 
       {filteredPhotos.length === 0 && (
         <div className="text-center py-12">
