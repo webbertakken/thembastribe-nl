@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import GalleryLightbox from './GalleryLightbox';
+import PhotoFilters from './PhotoFilters';
 
 // Import optimized images
 import thembaPortraitOpt from '../assets/optimized/themba-portrait.webp';
@@ -186,59 +187,10 @@ export default function PhotoGallery() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      {/* Filter Tabs */}
-      <div className="mb-8 flex flex-wrap justify-center gap-2">
-        <button
-          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
-            activeFilter === 'all'
-              ? 'bg-amber-800 text-white'
-              : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-          }`}
-          onClick={() => handleFilterClick('all')}
-        >
-          Alle Foto's
-        </button>
-        <button
-          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
-            activeFilter === 'themba'
-              ? 'bg-amber-800 text-white'
-              : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-          }`}
-          onClick={() => handleFilterClick('themba')}
-        >
-          Themba
-        </button>
-        <button
-          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
-            activeFilter === 'motsi'
-              ? 'bg-amber-800 text-white'
-              : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-          }`}
-          onClick={() => handleFilterClick('motsi')}
-        >
-          Motsi
-        </button>
-        <button
-          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
-            activeFilter === 'beide'
-              ? 'bg-amber-800 text-white'
-              : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-          }`}
-          onClick={() => handleFilterClick('beide')}
-        >
-          Samen
-        </button>
-        <button
-          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
-            activeFilter === 'pups'
-              ? 'bg-amber-800 text-white'
-              : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-          }`}
-          onClick={() => handleFilterClick('pups')}
-        >
-          Pups
-        </button>
-      </div>
+      <PhotoFilters
+        activeFilter={activeFilter}
+        onFilterChange={handleFilterClick}
+      />
 
       {/* Photo Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -279,7 +231,6 @@ export default function PhotoGallery() {
         ))}
       </div>
 
-      {/* Use the external GalleryLightbox component */}
       <GalleryLightbox
         images={lightboxImages}
         initialIndex={currentPhotoIndex}
