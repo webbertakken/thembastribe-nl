@@ -1,17 +1,29 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Import all images
-import thembaPortrait from '../assets/images/themba-portrait.png';
-import motsiPortrait from '../assets/images/motsi-portrait.jpg';
-import thembaHero from '../assets/images/themba-hero.jpg';
-import motsiInfo from '../assets/images/motsi-info.webp';
-import beach from '../assets/images/20240801_204858.jpg';
-import camping from '../assets/images/20240802_122556.jpg';
-import forest from '../assets/images/20240810_114538.jpg';
-import water from '../assets/images/20240810_121156.jpg';
-import morningWalk from '../assets/images/20240820_085023.jpg';
-import sunset from '../assets/images/20240820_154700.jpg';
+// Import optimized images
+import thembaPortraitOpt from '../assets/optimized/themba-portrait.webp';
+import motsiPortraitOpt from '../assets/optimized/motsi-portrait.webp';
+import thembaHeroOpt from '../assets/optimized/themba-hero.webp';
+import motsiInfoOpt from '../assets/optimized/motsi-info.webp';
+import beachOpt from '../assets/optimized/20240801_204858.webp';
+import campingOpt from '../assets/optimized/20240802_122556.webp';
+import forestOpt from '../assets/optimized/20240810_114538.webp';
+import waterOpt from '../assets/optimized/20240810_121156.webp';
+import morningWalkOpt from '../assets/optimized/20240820_085023.webp';
+import sunsetOpt from '../assets/optimized/20240820_154700.webp';
+
+// Import thumbnails
+import thembaPortraitThumb from '../assets/thumbnails/thumb-themba-portrait.webp';
+import motsiPortraitThumb from '../assets/thumbnails/thumb-motsi-portrait.webp';
+import thembaHeroThumb from '../assets/thumbnails/thumb-themba-hero.webp';
+import motsiInfoThumb from '../assets/thumbnails/thumb-motsi-info.webp';
+import beachThumb from '../assets/thumbnails/thumb-20240801_204858.webp';
+import campingThumb from '../assets/thumbnails/thumb-20240802_122556.webp';
+import forestThumb from '../assets/thumbnails/thumb-20240810_114538.webp';
+import waterThumb from '../assets/thumbnails/thumb-20240810_121156.webp';
+import morningWalkThumb from '../assets/thumbnails/thumb-20240820_085023.webp';
+import sunsetThumb from '../assets/thumbnails/thumb-20240820_154700.webp';
 
 // Photo data with imported images
 const photoData = [
@@ -20,8 +32,8 @@ const photoData = [
     title: "Themba in de tuin",
     description: "Themba geniet van een zonnige dag in de tuin",
     date: "2025-04-08",
-    image: thembaPortrait,
-    thumbnail: thembaPortrait,
+    image: thembaPortraitOpt,
+    thumbnail: thembaPortraitThumb,
     category: "themba",
     featured: true
   },
@@ -30,8 +42,8 @@ const photoData = [
     title: "Motsi van de Palsenborghœve",
     description: "Motsi, kampioen en trotse vader van het aankomende nestje",
     date: "2023-05-20",
-    image: motsiPortrait,
-    thumbnail: motsiPortrait,
+    image: motsiPortraitOpt,
+    thumbnail: motsiPortraitThumb,
     category: "motsi",
     featured: true
   },
@@ -40,8 +52,8 @@ const photoData = [
     title: "Themba in Oostenrijk",
     description: "Heerlijk genieten van het uitzicht",
     date: "2024-08-10",
-    image: thembaHero,
-    thumbnail: thembaHero,
+    image: thembaHeroOpt,
+    thumbnail: thembaHeroThumb,
     category: "themba",
     featured: false
   },
@@ -50,8 +62,8 @@ const photoData = [
     title: "Motsi's officiële informatie",
     description: "Stamboom en gezondheidsgegevens van Motsi",
     date: "2021-08-01",
-    image: motsiInfo,
-    thumbnail: motsiInfo,
+    image: motsiInfoOpt,
+    thumbnail: motsiInfoThumb,
     category: "motsi",
     featured: false
   },
@@ -61,8 +73,8 @@ const photoData = [
     title: "Themba aan het strandje",
     description: "Themba geniet van een mooie zomerdag bij het water",
     date: "2024-08-01",
-    image: beach,
-    thumbnail: beach,
+    image: beachOpt,
+    thumbnail: beachThumb,
     category: "themba",
     featured: false
   },
@@ -71,8 +83,8 @@ const photoData = [
     title: "Themba and Bosi",
     description: "Samen lekker camperen in de campervan",
     date: "2024-08-02",
-    image: camping,
-    thumbnail: camping,
+    image: campingOpt,
+    thumbnail: campingThumb,
     category: "themba",
     featured: false
   },
@@ -81,8 +93,8 @@ const photoData = [
     title: "Themba met Bosi in het bos",
     description: "Samen op avontuur tijdens een boswandeling",
     date: "2024-08-10",
-    image: forest,
-    thumbnail: forest,
+    image: forestOpt,
+    thumbnail: forestThumb,
     category: "themba",
     featured: false
   },
@@ -91,8 +103,8 @@ const photoData = [
     title: "Spelen bij de waterrand",
     description: "Themba en Bosi genieten van het water tijdens een warme dag",
     date: "2024-08-10",
-    image: water,
-    thumbnail: water,
+    image: waterOpt,
+    thumbnail: waterThumb,
     category: "themba",
     featured: false
   },
@@ -101,8 +113,8 @@ const photoData = [
     title: "Ochtendwandeling",
     description: "Vroeg in de ochtend, klaar voor een nieuwe dag",
     date: "2024-08-20",
-    image: morningWalk,
-    thumbnail: morningWalk,
+    image: morningWalkOpt,
+    thumbnail: morningWalkThumb,
     category: "themba",
     featured: false
   },
@@ -111,8 +123,8 @@ const photoData = [
     title: "Themba bij zonsondergang",
     description: "Een prachtige afsluiting van een fijne dag samen",
     date: "2024-08-20",
-    image: sunset,
-    thumbnail: sunset,
+    image: sunsetOpt,
+    thumbnail: sunsetThumb,
     category: "themba",
     featured: true
   }
@@ -273,7 +285,7 @@ export default function PhotoGallery() {
               onClick={() => openLightbox(index)}
             >
               <img
-                src={photo.thumbnail}
+                src={photo.thumbnail.src || photo.thumbnail}
                 alt={photo.title}
                 className="w-full h-64 object-cover"
                 loading="lazy"
@@ -326,7 +338,7 @@ export default function PhotoGallery() {
             </button>
             <motion.img
               key={currentPhotoIndex}
-              src={filteredPhotos[currentPhotoIndex].image}
+              src={filteredPhotos[currentPhotoIndex].image.src || filteredPhotos[currentPhotoIndex].image}
               alt={filteredPhotos[currentPhotoIndex].title}
               className="max-h-[85vh] max-w-[85vw] object-contain"
               initial={{ opacity: 0, scale: 0.9 }}
