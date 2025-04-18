@@ -13,4 +13,13 @@ export default defineConfig({
 
   adapter: vercel(),
   integrations: [react()],
+
+  // Image optimization settings
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
+    domains: [],
+    remotePatterns: [],
+  },
 });

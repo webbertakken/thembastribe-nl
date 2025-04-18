@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-thumbnails": "node --no-warnings src/scripts/generate-thumbnails.js",
+    "optimize-images": "node --no-warnings src/scripts/optimize-images.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
@@ -22,6 +24,7 @@
     "prettier": "^3.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "sharp": "^0.32.6",
     "tailwindcss": "^4.1.4"
   }
 }

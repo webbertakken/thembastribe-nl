@@ -1,15 +1,27 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Photo data using real images from public/images folder
+// Import all images
+import thembaPortrait from '../assets/images/themba-portrait.png';
+import motsiPortrait from '../assets/images/motsi-portrait.jpg';
+import thembaHero from '../assets/images/themba-hero.jpg';
+import motsiInfo from '../assets/images/motsi-info.webp';
+import beach from '../assets/images/20240801_204858.jpg';
+import camping from '../assets/images/20240802_122556.jpg';
+import forest from '../assets/images/20240810_114538.jpg';
+import water from '../assets/images/20240810_121156.jpg';
+import morningWalk from '../assets/images/20240820_085023.jpg';
+import sunset from '../assets/images/20240820_154700.jpg';
+
+// Photo data with imported images
 const photoData = [
   {
     id: 1,
     title: "Themba in de tuin",
     description: "Themba geniet van een zonnige dag in de tuin",
     date: "2025-04-08",
-    image: "/images/themba-portrait.png",
-    thumbnail: "/images/themba-portrait.png",
+    image: thembaPortrait,
+    thumbnail: thembaPortrait,
     category: "themba",
     featured: true
   },
@@ -18,8 +30,8 @@ const photoData = [
     title: "Motsi van de Palsenborghœve",
     description: "Motsi, kampioen en trotse vader van het aankomende nestje",
     date: "2023-05-20",
-    image: "/images/motsi-portrait.jpg",
-    thumbnail: "/images/motsi-portrait.jpg",
+    image: motsiPortrait,
+    thumbnail: motsiPortrait,
     category: "motsi",
     featured: true
   },
@@ -28,8 +40,8 @@ const photoData = [
     title: "Themba in Oostenrijk",
     description: "Heerlijk genieten van het uitzicht",
     date: "2024-08-10",
-    image: "/images/themba-hero.jpg",
-    thumbnail: "/images/themba-hero.jpg",
+    image: thembaHero,
+    thumbnail: thembaHero,
     category: "themba",
     featured: false
   },
@@ -38,8 +50,8 @@ const photoData = [
     title: "Motsi's officiële informatie",
     description: "Stamboom en gezondheidsgegevens van Motsi",
     date: "2021-08-01",
-    image: "/images/motsi-info.webp",
-    thumbnail: "/images/motsi-info.webp",
+    image: motsiInfo,
+    thumbnail: motsiInfo,
     category: "motsi",
     featured: false
   },
@@ -49,8 +61,8 @@ const photoData = [
     title: "Themba aan het strandje",
     description: "Themba geniet van een mooie zomerdag bij het water",
     date: "2024-08-01",
-    image: "/images/20240801_204858.jpg",
-    thumbnail: "/images/20240801_204858.jpg",
+    image: beach,
+    thumbnail: beach,
     category: "themba",
     featured: false
   },
@@ -59,8 +71,8 @@ const photoData = [
     title: "Themba and Bosi",
     description: "Samen lekker camperen in de campervan",
     date: "2024-08-02",
-    image: "/images/20240802_122556.jpg",
-    thumbnail: "/images/20240802_122556.jpg",
+    image: camping,
+    thumbnail: camping,
     category: "themba",
     featured: false
   },
@@ -69,8 +81,8 @@ const photoData = [
     title: "Themba met Bosi in het bos",
     description: "Samen op avontuur tijdens een boswandeling",
     date: "2024-08-10",
-    image: "/images/20240810_114538.jpg",
-    thumbnail: "/images/20240810_114538.jpg",
+    image: forest,
+    thumbnail: forest,
     category: "themba",
     featured: false
   },
@@ -79,8 +91,8 @@ const photoData = [
     title: "Spelen bij de waterrand",
     description: "Themba en Bosi genieten van het water tijdens een warme dag",
     date: "2024-08-10",
-    image: "/images/20240810_121156.jpg",
-    thumbnail: "/images/20240810_121156.jpg",
+    image: water,
+    thumbnail: water,
     category: "themba",
     featured: false
   },
@@ -89,8 +101,8 @@ const photoData = [
     title: "Ochtendwandeling",
     description: "Vroeg in de ochtend, klaar voor een nieuwe dag",
     date: "2024-08-20",
-    image: "/images/20240820_085023.jpg",
-    thumbnail: "/images/20240820_085023.jpg",
+    image: morningWalk,
+    thumbnail: morningWalk,
     category: "themba",
     featured: false
   },
@@ -99,8 +111,8 @@ const photoData = [
     title: "Themba bij zonsondergang",
     description: "Een prachtige afsluiting van een fijne dag samen",
     date: "2024-08-20",
-    image: "/images/20240820_154700.jpg",
-    thumbnail: "/images/20240820_154700.jpg",
+    image: sunset,
+    thumbnail: sunset,
     category: "themba",
     featured: true
   }
@@ -265,6 +277,8 @@ export default function PhotoGallery() {
                 alt={photo.title}
                 className="w-full h-64 object-cover"
                 loading="lazy"
+                width={300}
+                height={200}
               />
               {photo.featured && (
                 <span className="absolute top-2 right-2 bg-amber-600 text-white text-xs px-2 py-1 rounded-full">
