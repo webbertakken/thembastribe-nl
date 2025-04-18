@@ -195,7 +195,7 @@ export default function PhotoGallery() {
       {/* Filter Tabs */}
       <div className="mb-8 flex flex-wrap justify-center gap-2">
         <button
-          className={`px-5 py-2 rounded-full transition-colors ${
+          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
             activeFilter === 'all'
               ? 'bg-amber-800 text-white'
               : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
@@ -205,7 +205,7 @@ export default function PhotoGallery() {
           Alle Foto's
         </button>
         <button
-          className={`px-5 py-2 rounded-full transition-colors ${
+          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
             activeFilter === 'themba'
               ? 'bg-amber-800 text-white'
               : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
@@ -215,7 +215,7 @@ export default function PhotoGallery() {
           Themba
         </button>
         <button
-          className={`px-5 py-2 rounded-full transition-colors ${
+          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
             activeFilter === 'motsi'
               ? 'bg-amber-800 text-white'
               : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
@@ -225,7 +225,7 @@ export default function PhotoGallery() {
           Motsi
         </button>
         <button
-          className={`px-5 py-2 rounded-full transition-colors ${
+          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
             activeFilter === 'beide'
               ? 'bg-amber-800 text-white'
               : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
@@ -235,7 +235,7 @@ export default function PhotoGallery() {
           Samen
         </button>
         <button
-          className={`px-5 py-2 rounded-full transition-colors ${
+          className={`px-5 py-2 rounded-full transition-colors cursor-pointer ${
             activeFilter === 'pups'
               ? 'bg-amber-800 text-white'
               : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
