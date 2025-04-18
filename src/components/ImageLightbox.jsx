@@ -53,19 +53,25 @@ export default function ImageLightbox() {
     setIsOpen(false);
   };
 
+  // Handle image click to prevent propagation
+  const handleImageClick = (e) => {
+    e.stopPropagation();
+  };
+
   // If not open or no image, don't render anything
   if (!isOpen || !imageSrc) return null;
 
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        onClick={handleClose}
       >
         <button
-          className="absolute top-6 right-6 text-white text-4xl hover:text-amber-300"
+          className="absolute top-6 right-6 text-white text-4xl hover:text-amber-300 cursor-pointer"
           onClick={handleClose}
         >
           &times;
@@ -73,11 +79,12 @@ export default function ImageLightbox() {
         <motion.img
           src={imageSrc}
           alt="Enlarged view"
-          className="max-h-[85vh] max-w-[85vw] object-contain"
+          className="max-h-[85vh] max-w-[85vw] object-contain cursor-default"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
+          onClick={handleImageClick}
         />
       </motion.div>
     </AnimatePresence>

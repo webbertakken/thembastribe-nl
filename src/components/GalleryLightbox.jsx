@@ -14,14 +14,16 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
   }, [isOpen, initialIndex, images]);
 
   // Navigate to previous image
-  const prevImage = () => {
+  const prevImage = (e) => {
+    e.stopPropagation(); // Prevent background click handling
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
 
   // Navigate to next image
-  const nextImage = () => {
+  const nextImage = (e) => {
+    e.stopPropagation(); // Prevent background click handling
     setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
@@ -37,10 +39,10 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
           handleClose();
           break;
         case 'ArrowLeft':
-          prevImage();
+          prevImage(e);
           break;
         case 'ArrowRight':
-          nextImage();
+          nextImage(e);
           break;
         default:
           break;
@@ -69,6 +71,11 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
     onClose();
   };
 
+  // Handle image click to prevent propagation
+  const handleImageClick = (e) => {
+    e.stopPropagation();
+  };
+
   // If no images or not open, don't render anything
   if (!open || images.length === 0) return null;
 
@@ -80,13 +87,14 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        onClick={handleClose}
       >
         <button
-          className="absolute top-6 right-6 text-white text-4xl hover:text-amber-300"
+          className="absolute top-6 right-6 text-white text-4xl hover:text-amber-300 cursor-pointer p-4"
           onClick={handleClose}
         >
           &times;
@@ -94,13 +102,13 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
         {images.length > 1 && (
           <>
             <button
-              className="absolute left-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-amber-300"
+              className="absolute left-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-amber-300 cursor-pointer p-8 w-24 h-24 flex items-center justify-center"
               onClick={prevImage}
             >
               &#10094;
             </button>
             <button
-              className="absolute right-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-amber-300"
+              className="absolute right-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-amber-300 cursor-pointer p-8 w-24 h-24 flex items-center justify-center"
               onClick={nextImage}
             >
               &#10095;
@@ -111,14 +119,18 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
           key={currentIndex}
           src={currentImage.src?.src || currentImage.src}
           alt={currentImage.alt || ''}
-          className="max-h-[85vh] max-w-[85vw] object-contain"
+          className="max-h-[85vh] max-w-[85vw] object-contain cursor-default"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
+          onClick={handleImageClick}
         />
         {currentImage.title && (
-          <div className="absolute bottom-6 left-0 right-0 text-center">
+          <div
+            className="absolute bottom-6 left-0 right-0 text-center"
+            onClick={handleImageClick}
+          >
             <div className="bg-black bg-opacity-70 mx-auto p-3 max-w-2xl">
               <h2 className="text-white text-xl mb-1">{currentImage.title}</h2>
               {currentImage.description && (
