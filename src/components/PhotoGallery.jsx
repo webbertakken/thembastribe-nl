@@ -1,31 +1,37 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import GalleryLightbox from './GalleryLightbox';
-import PhotoFilters from './PhotoFilters';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import GalleryLightbox from "./GalleryLightbox";
+import PhotoFilters from "./PhotoFilters";
 
 // Import optimized images
-import thembaPortraitOpt from '../assets/optimized/themba-portrait.webp';
-import motsiPortraitOpt from '../assets/optimized/motsi-portrait.webp';
-import thembaHeroOpt from '../assets/optimized/themba-hero.webp';
-import motsiInfoOpt from '../assets/optimized/motsi-info.webp';
-import beachOpt from '../assets/optimized/20240801_204858.webp';
-import campingOpt from '../assets/optimized/20240802_122556.webp';
-import forestOpt from '../assets/optimized/20240810_114538.webp';
-import waterOpt from '../assets/optimized/20240810_121156.webp';
-import morningWalkOpt from '../assets/optimized/20240820_085023.webp';
-import sunsetOpt from '../assets/optimized/20240820_154700.webp';
+import thembaPortraitOpt from "../assets/optimized/themba-portrait.webp";
+import motsiPortraitOpt from "../assets/optimized/motsi-portrait.webp";
+import thembaHeroOpt from "../assets/optimized/themba-hero.webp";
+import motsiInfoOpt from "../assets/optimized/motsi-info.webp";
+import beachOpt from "../assets/optimized/20240801_204858.webp";
+import campingOpt from "../assets/optimized/20240802_122556.webp";
+import forestOpt from "../assets/optimized/20240810_114538.webp";
+import waterOpt from "../assets/optimized/20240810_121156.webp";
+import morningWalkOpt from "../assets/optimized/20240820_085023.webp";
+import sunsetOpt from "../assets/optimized/20240820_154700.webp";
+import lilacFemale from "../assets/optimized/lilac-female-20250515_201908.webp";
+import cyanMale from "../assets/optimized/cyan-male-20250515_205442.webp";
+import blueMale from "../assets/optimized/blue-male-20250515_202347.webp";
 
 // Import thumbnails
-import thembaPortraitThumb from '../assets/thumbnails/thumb-themba-portrait.webp';
-import motsiPortraitThumb from '../assets/thumbnails/thumb-motsi-portrait.webp';
-import thembaHeroThumb from '../assets/thumbnails/thumb-themba-hero.webp';
-import motsiInfoThumb from '../assets/thumbnails/thumb-motsi-info.webp';
-import beachThumb from '../assets/thumbnails/thumb-20240801_204858.webp';
-import campingThumb from '../assets/thumbnails/thumb-20240802_122556.webp';
-import forestThumb from '../assets/thumbnails/thumb-20240810_114538.webp';
-import waterThumb from '../assets/thumbnails/thumb-20240810_121156.webp';
-import morningWalkThumb from '../assets/thumbnails/thumb-20240820_085023.webp';
-import sunsetThumb from '../assets/thumbnails/thumb-20240820_154700.webp';
+import thembaPortraitThumb from "../assets/thumbnails/thumb-themba-portrait.webp";
+import motsiPortraitThumb from "../assets/thumbnails/thumb-motsi-portrait.webp";
+import thembaHeroThumb from "../assets/thumbnails/thumb-themba-hero.webp";
+import motsiInfoThumb from "../assets/thumbnails/thumb-motsi-info.webp";
+import beachThumb from "../assets/thumbnails/thumb-20240801_204858.webp";
+import campingThumb from "../assets/thumbnails/thumb-20240802_122556.webp";
+import forestThumb from "../assets/thumbnails/thumb-20240810_114538.webp";
+import waterThumb from "../assets/thumbnails/thumb-20240810_121156.webp";
+import morningWalkThumb from "../assets/thumbnails/thumb-20240820_085023.webp";
+import sunsetThumb from "../assets/thumbnails/thumb-20240820_154700.webp";
+import lilacFemaleThumb from "../assets/thumbnails/thumb-lilac-female-20250515_201908.webp";
+import cyanMaleThumb from "../assets/thumbnails/thumb-cyan-male-20250515_205442.webp";
+import blueMaleThumb from "../assets/thumbnails/thumb-blue-male-20250515_202347.webp";
 
 // Photo data with imported images
 const photoData = [
@@ -37,7 +43,7 @@ const photoData = [
     image: thembaPortraitOpt,
     thumbnail: thembaPortraitThumb,
     category: "themba",
-    featured: true
+    featured: true,
   },
   {
     id: 2,
@@ -47,7 +53,7 @@ const photoData = [
     image: motsiPortraitOpt,
     thumbnail: motsiPortraitThumb,
     category: "motsi",
-    featured: true
+    featured: true,
   },
   {
     id: 3,
@@ -57,7 +63,7 @@ const photoData = [
     image: thembaHeroOpt,
     thumbnail: thembaHeroThumb,
     category: "themba",
-    featured: false
+    featured: false,
   },
   {
     id: 4,
@@ -67,7 +73,7 @@ const photoData = [
     image: motsiInfoOpt,
     thumbnail: motsiInfoThumb,
     category: "motsi",
-    featured: false
+    featured: false,
   },
   // New photos from August 2024
   {
@@ -78,7 +84,7 @@ const photoData = [
     image: beachOpt,
     thumbnail: beachThumb,
     category: "themba",
-    featured: false
+    featured: false,
   },
   {
     id: 6,
@@ -88,7 +94,7 @@ const photoData = [
     image: campingOpt,
     thumbnail: campingThumb,
     category: "themba",
-    featured: false
+    featured: false,
   },
   {
     id: 7,
@@ -98,7 +104,7 @@ const photoData = [
     image: forestOpt,
     thumbnail: forestThumb,
     category: "themba",
-    featured: false
+    featured: false,
   },
   {
     id: 8,
@@ -108,7 +114,7 @@ const photoData = [
     image: waterOpt,
     thumbnail: waterThumb,
     category: "themba",
-    featured: false
+    featured: false,
   },
   {
     id: 9,
@@ -118,7 +124,7 @@ const photoData = [
     image: morningWalkOpt,
     thumbnail: morningWalkThumb,
     category: "themba",
-    featured: false
+    featured: false,
   },
   {
     id: 10,
@@ -128,8 +134,38 @@ const photoData = [
     image: sunsetOpt,
     thumbnail: sunsetThumb,
     category: "themba",
-    featured: true
-  }
+    featured: true,
+  },
+  {
+    id: 11,
+    title: "Teefje lila",
+    description: "",
+    date: "2025-05-15",
+    image: lilacFemale,
+    thumbnail: lilacFemaleThumb,
+    category: "pups",
+    featured: true,
+  },
+  {
+    id: 12,
+    title: "Reutje lichtblauw",
+    description: "",
+    date: "2025-05-15",
+    image: cyanMale,
+    thumbnail: cyanMaleThumb,
+    category: "pups",
+    featured: true,
+  },
+  {
+    id: 13,
+    title: "Reutje donkerblauw",
+    description: "",
+    date: "2025-05-15",
+    image: blueMale,
+    thumbnail: blueMaleThumb,
+    category: "pups",
+    featured: true,
+  },
 ];
 
 export default function PhotoGallery() {
@@ -146,17 +182,21 @@ export default function PhotoGallery() {
   };
 
   const [photos, setPhotos] = useState(() => sortPhotos(photoData));
-  const [filteredPhotos, setFilteredPhotos] = useState(() => sortPhotos(photoData));
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [filteredPhotos, setFilteredPhotos] = useState(() =>
+    sortPhotos(photoData),
+  );
+  const [activeFilter, setActiveFilter] = useState("all");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   // Filter photos when activeFilter changes
   useEffect(() => {
-    if (activeFilter === 'all') {
+    if (activeFilter === "all") {
       setFilteredPhotos(photos);
     } else {
-      setFilteredPhotos(sortPhotos(photos.filter(photo => photo.category === activeFilter)));
+      setFilteredPhotos(
+        sortPhotos(photos.filter((photo) => photo.category === activeFilter)),
+      );
     }
   }, [activeFilter, photos]);
 
@@ -177,12 +217,12 @@ export default function PhotoGallery() {
   };
 
   // Format photos for lightbox
-  const lightboxImages = filteredPhotos.map(photo => ({
+  const lightboxImages = filteredPhotos.map((photo) => ({
     src: photo.image,
     alt: photo.title,
     title: photo.title,
     description: photo.description,
-    date: photo.date
+    date: photo.date,
   }));
 
   return (
@@ -221,9 +261,11 @@ export default function PhotoGallery() {
               )}
             </div>
             <div className="p-4">
-              <h3 className="font-semibold text-amber-800 mb-1">{photo.title}</h3>
+              <h3 className="font-semibold text-amber-800 mb-1">
+                {photo.title}
+              </h3>
               <p className="text-sm text-gray-600 mb-2">
-                {new Date(photo.date).toLocaleDateString('nl-NL')}
+                {new Date(photo.date).toLocaleDateString("nl-NL")}
               </p>
               <p className="text-sm text-gray-700">{photo.description}</p>
             </div>
@@ -240,7 +282,9 @@ export default function PhotoGallery() {
 
       {filteredPhotos.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500">Geen foto's gevonden in deze categorie.</p>
+          <p className="text-gray-500">
+            Geen foto's gevonden in deze categorie.
+          </p>
         </div>
       )}
     </div>
