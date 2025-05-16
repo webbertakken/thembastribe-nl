@@ -1,18 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 import { motion } from "framer-motion";
-import { Image } from 'astro:assets';
-import ImageLightbox from '../components/ImageLightbox';
-import thembaHero from '../assets/optimized/themba-hero.webp';
+import { Image } from "astro:assets";
+import ImageLightbox from "../components/ImageLightbox";
+import thembaHero from "../assets/optimized/themba-hero.webp";
 
 // Prepare images for lightbox
 const lightboxImages = [
   {
     src: thembaHero.src,
-    alt: 'Themba en Motsi, onze Rhodesian Ridgebacks',
-    title: 'Themba in Oostenrijk',
-    description: 'Heerlijk genieten van het uitzicht in de Oostenrijkse bergen'
-  }
+    alt: "Themba en Motsi, onze Rhodesian Ridgebacks",
+    title: "Themba in Oostenrijk",
+    description: "Heerlijk genieten van het uitzicht in de Oostenrijkse bergen",
+  },
 ];
 ---
 
@@ -23,17 +23,18 @@ const lightboxImages = [
         <div class="md:w-1/2">
           <h1 class="text-4xl md:text-5xl font-bold text-amber-900 mb-6">Welkom bij Themba's Tribe</h1>
           <p class="text-lg mb-6">
-            Ik ben Themba, een trotse Rhodesian Ridgeback met een bijzonder verhaal.
-            Binnenkort krijg ik mijn eerste nestje pups en mijn baasje Carolien en ik kunnen niet wachten om deze
-            avontuurlijke reis met jullie te delen.
+            Ik ben Themba, een trotse Rhodesian Ridgeback met een bijzonder verhaal. Op 14 mei is mijn eerste nestje
+            pups geboren en ik kan niet wachten om deze bijzondere reis met jullie te delen.
           </p>
           <p class="text-lg mb-6">
-            Als ras staan Rhodesian Ridgebacks bekend om hun loyaliteit, intelligentie en natuurlijk
-            de karakteristieke ridge op onze rug. Ontdek meer over ons karakter, ons leven samen en
-            alles over het aankomende nestje.
+            Als ras staan Rhodesian Ridgebacks bekend om hun loyaliteit, intelligentie en natuurlijk de karakteristieke
+            ridge op onze rug. Ontdek meer over ons karakter, ons leven samen en alles over mijn eerste nestje.
           </p>
           <div class="flex gap-4">
-            <a href="/verhaal" class="bg-amber-800 hover:bg-amber-700 text-white px-6 py-3 rounded-lg transition-colors">
+            <a
+              href="/verhaal"
+              class="bg-amber-800 hover:bg-amber-700 text-white px-6 py-3 rounded-lg transition-colors"
+            >
               Ons verhaal
             </a>
             <a href="/pups" class="bg-amber-600 hover:bg-amber-500 text-white px-6 py-3 rounded-lg transition-colors">
@@ -43,7 +44,10 @@ const lightboxImages = [
         </div>
         <div class="md:w-1/2">
           <div class="relative rounded-lg overflow-hidden shadow-xl">
-            <div class="cursor-pointer hover:opacity-90 transition-opacity" onclick={`window.openImageLightbox('${thembaHero.src}')`}>
+            <div
+              class="cursor-pointer hover:opacity-90 transition-opacity"
+              onclick={`window.openImageLightbox('${thembaHero.src}')`}
+            >
               <Image
                 src={thembaHero}
                 alt="Themba en Motsi, onze Rhodesian Ridgebacks"
@@ -66,9 +70,9 @@ const lightboxImages = [
 
       <div class="max-w-4xl mx-auto mb-12 text-center">
         <p class="text-lg">
-          De Rhodesian Ridgeback is een veelzijdig en nobel ras, oorspronkelijk gefokt in zuidelijk Afrika.
-          Ze worden gekenmerkt door hun kenmerkende "ridge" - een strook haar die in de tegenovergestelde richting
-          groeit langs hun ruggengraat - en hun opmerkelijke combinatie van kracht, elegantie en intelligentie.
+          De Rhodesian Ridgeback is een veelzijdig en nobel ras, oorspronkelijk gefokt in zuidelijk Afrika. Ze worden
+          gekenmerkt door hun kenmerkende "ridge" - een strook haar die in de tegenovergestelde richting groeit langs
+          hun ruggengraat - en hun opmerkelijke combinatie van kracht, elegantie en intelligentie.
         </p>
       </div>
 
@@ -76,40 +80,40 @@ const lightboxImages = [
         <div class="bg-white p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold text-amber-800 mb-3">Geschiedenis</h3>
           <p class="mb-3">
-            De Rhodesian Ridgeback komt oorspronkelijk uit Zuid-Afrika en werd gefokt om leeuwen op te sporen
-            en in bedwang te houden totdat de jager arriveerde. De kenmerkende ridge op de rug is een uniek
-            genetisch kenmerk dat werd geërfd van de inheemse Khoikhoi-hond.
+            De Rhodesian Ridgeback komt oorspronkelijk uit Zuid-Afrika en werd gefokt om leeuwen op te sporen en in
+            bedwang te houden totdat de jager arriveerde. De kenmerkende ridge op de rug is een uniek genetisch kenmerk
+            dat werd geërfd van de inheemse Khoikhoi-hond.
           </p>
           <p>
-            In 1922 werd in Zimbabwe (het toenmalige Rhodesië) een officiële rasstandaard opgesteld. Het ras werd in 1955
-            erkend door de FCI (Fédération Cynologique Internationale) en heeft zich sindsdien wereldwijd verspreid als
-            veelzijdige familie- en werkhond.
+            In 1922 werd in Zimbabwe (het toenmalige Rhodesië) een officiële rasstandaard opgesteld. Het ras werd in
+            1955 erkend door de FCI (Fédération Cynologique Internationale) en heeft zich sindsdien wereldwijd verspreid
+            als veelzijdige familie- en werkhond.
           </p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold text-amber-800 mb-3">Karakter</h3>
           <p class="mb-3">
-            Ridgebacks zijn intelligent, loyaal en onafhankelijk. Ze zijn geweldige gezinshonden, liefdevol
-            naar hun familie maar vaak gereserveerd naar vreemden. Ze zijn ook bekend om hun beschermende aard
-            en uitstekende waakhondkwaliteiten.
+            Ridgebacks zijn intelligent, loyaal en onafhankelijk. Ze zijn geweldige gezinshonden, liefdevol naar hun
+            familie maar vaak gereserveerd naar vreemden. Ze zijn ook bekend om hun beschermende aard en uitstekende
+            waakhondkwaliteiten.
           </p>
           <p>
-            Ze combineren een rustige, stabiele aard binnenshuis met een atletische, energieke persoonlijkheid buitenshuis.
-            Ondanks hun jachtverleden zijn ze doorgaans goed met kinderen en kunnen ze goed samenleven met andere huisdieren,
-            vooral als ze daar vanaf jonge leeftijd aan gewend zijn.
+            Ze combineren een rustige, stabiele aard binnenshuis met een atletische, energieke persoonlijkheid
+            buitenshuis. Ondanks hun jachtverleden zijn ze doorgaans goed met kinderen en kunnen ze goed samenleven met
+            andere huisdieren, vooral als ze daar vanaf jonge leeftijd aan gewend zijn.
           </p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold text-amber-800 mb-3">Uiterlijk & gezondheid</h3>
           <p class="mb-3">
-            Gespierd en atletisch, met een korte, glanzende vacht in tinten van licht tarwe tot rood tarwe.
-            De ridge op de rug bestaat uit haren die in de tegenovergestelde richting groeien als de rest van de vacht.
-            Volwassen reuen hebben een schofthoogte van 63-69 cm, teven 61-66 cm.
+            Gespierd en atletisch, met een korte, glanzende vacht in tinten van licht tarwe tot rood tarwe. De ridge op
+            de rug bestaat uit haren die in de tegenovergestelde richting groeien als de rest van de vacht. Volwassen
+            reuen hebben een schofthoogte van 63-69 cm, teven 61-66 cm.
           </p>
           <p>
-            Ridgebacks staan bekend om hun robuuste gezondheid en lange levensduur (gemiddeld 10-12 jaar). Verantwoordelijke
-            fokkers testen op erfelijke aandoeningen zoals heupdysplasie, elleboogdysplasie en dermoid sinus. Het ras is
-            relatief onderhoudsvriendelijk qua vachtverzorging.
+            Ridgebacks staan bekend om hun robuuste gezondheid en lange levensduur (gemiddeld 10-12 jaar).
+            Verantwoordelijke fokkers testen op erfelijke aandoeningen zoals heupdysplasie, elleboogdysplasie en dermoid
+            sinus. Het ras is relatief onderhoudsvriendelijk qua vachtverzorging.
           </p>
         </div>
       </div>
@@ -118,14 +122,15 @@ const lightboxImages = [
         <div class="bg-white p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold text-amber-800 mb-3">Training & activiteiten</h3>
           <p class="mb-3">
-            Rhodesian Ridgebacks zijn intelligente honden die profiteren van consistente, positieve training.
-            Hun onafhankelijke aard kan soms uitdagend zijn, maar met geduld en respect ontwikkelen ze zich tot
-            gehoorzame en betrouwbare metgezellen.
+            Rhodesian Ridgebacks zijn intelligente honden die profiteren van consistente, positieve training. Hun
+            onafhankelijke aard kan soms uitdagend zijn, maar met geduld en respect ontwikkelen ze zich tot gehoorzame
+            en betrouwbare metgezellen.
           </p>
           <p>
             Ze excelleren in verschillende hondensporten zoals behendigheid, gehoorzaamheid, mantrailing en coursing.
-            Als actief ras hebben ze dagelijks beweging nodig, waaronder wandelingen en gelegenheid om vrij te rennen
-            in een veilige omgeving. Een Ridgeback is een perfecte partner voor actieve eigenaren die van buitenactiviteiten houden.
+            Als actief ras hebben ze dagelijks beweging nodig, waaronder wandelingen en gelegenheid om vrij te rennen in
+            een veilige omgeving. Een Ridgeback is een perfecte partner voor actieve eigenaren die van
+            buitenactiviteiten houden.
           </p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md">
@@ -147,20 +152,20 @@ const lightboxImages = [
 </Layout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     let isLightboxOpen = false;
 
     // Get hero image element
-    const heroImage = document.querySelector('.lightbox-trigger');
+    const heroImage = document.querySelector(".lightbox-trigger");
     if (!heroImage) return;
 
     // Add click event to the hero image
-    heroImage.addEventListener('click', () => {
-      const index = parseInt(heroImage.getAttribute('data-index') || '0', 10);
+    heroImage.addEventListener("click", () => {
+      const index = parseInt(heroImage.getAttribute("data-index") || "0", 10);
 
       // Create and dispatch custom event
-      const event = new CustomEvent('openLightbox', {
-        detail: { index, isOpen: true }
+      const event = new CustomEvent("openLightbox", {
+        detail: { index, isOpen: true },
       });
       document.dispatchEvent(event);
       isLightboxOpen = true;
