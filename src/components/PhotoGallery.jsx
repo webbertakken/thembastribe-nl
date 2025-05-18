@@ -17,6 +17,16 @@ import sunsetOpt from "../assets/optimized/20240820_154700.webp";
 import lilacFemale from "../assets/optimized/lilac-female-20250515_201908.webp";
 import cyanMale from "../assets/optimized/cyan-male-20250515_205442.webp";
 import blueMale from "../assets/optimized/blue-male-20250515_202347.webp";
+import reutjeGroenOpt from "../assets/optimized/reutje-groen-20250516_193750.webp";
+import teefjeOranjeOpt from "../assets/optimized/teefje-oranje-20250517_105257.webp";
+import teefjeGeelOpt from "../assets/optimized/teefje-geel-20250517_112037.webp";
+import reutjeDonkerblauwOpt from "../assets/optimized/reutje-donkerblauw-20250517_114558.webp";
+import deTeefjesOpt from "../assets/optimized/de-teefjes-20250517_115328.webp";
+import reutjePaarsOpt from "../assets/optimized/reutje-paars-20250517_103059.webp";
+import deReutjesOpt from "../assets/optimized/de-reutjes-20250517_115831.webp";
+import teefjeLichtblauwOpt from "../assets/optimized/teefje-lichtblauw-20250517_110301.webp";
+import teefjeRoodOpt from "../assets/optimized/teefje-rood-20250517_101817.webp";
+import teefjeRozeOpt from "../assets/optimized/teefje-roze-20250516_200353.webp";
 
 // Import thumbnails
 import thembaPortraitThumb from "../assets/thumbnails/thumb-themba-portrait.webp";
@@ -32,138 +42,248 @@ import sunsetThumb from "../assets/thumbnails/thumb-20240820_154700.webp";
 import lilacFemaleThumb from "../assets/thumbnails/thumb-lilac-female-20250515_201908.webp";
 import cyanMaleThumb from "../assets/thumbnails/thumb-cyan-male-20250515_205442.webp";
 import blueMaleThumb from "../assets/thumbnails/thumb-blue-male-20250515_202347.webp";
+import reutjeGroenThumb from "../assets/thumbnails/thumb-reutje-groen-20250516_193750.webp";
+import teefjeOranjeThumb from "../assets/thumbnails/thumb-teefje-oranje-20250517_105257.webp";
+import teefjeGeelThumb from "../assets/thumbnails/thumb-teefje-geel-20250517_112037.webp";
+import reutjeDonkerblauwThumb from "../assets/thumbnails/thumb-reutje-donkerblauw-20250517_114558.webp";
+import deTeefjesThumb from "../assets/thumbnails/thumb-de-teefjes-20250517_115328.webp";
+import reutjePaarsThumb from "../assets/thumbnails/thumb-reutje-paars-20250517_103059.webp";
+import deReutjesThumb from "../assets/thumbnails/thumb-de-reutjes-20250517_115831.webp";
+import teefjeLichtblauwThumb from "../assets/thumbnails/thumb-teefje-lichtblauw-20250517_110301.webp";
+import teefjeRoodThumb from "../assets/thumbnails/thumb-teefje-rood-20250517_101817.webp";
+import teefjeRozeThumb from "../assets/thumbnails/thumb-teefje-roze-20250516_200353.webp";
 
 // Photo data with imported images
 const photoData = [
-  {
-    id: 1,
-    title: "Themba in de tuin",
-    description: "Themba geniet van een zonnige dag in de tuin",
-    date: "2025-04-08",
-    image: thembaPortraitOpt,
-    thumbnail: thembaPortraitThumb,
-    category: "themba",
-    featured: true,
-  },
+  // {
+  //   id: 1,
+  //   title: "Themba in de tuin",
+  //   description: "Themba geniet van een zonnige dag in de tuin",
+  //   date: "2025-04-08",
+  //   image: thembaPortraitOpt,
+  //   thumbnail: thembaPortraitThumb,
+  //   categories: "themba",
+  //   featured: true,
+  // },
   {
     id: 2,
     title: "Motsi van de Palsenborghœve",
-    description: "Motsi, kampioen en trotse vader van het aankomende nestje",
-    date: "2023-05-20",
+    description: "Motsi, kampioen en trotse vader van het nestje",
+    date: "",
     image: motsiPortraitOpt,
     thumbnail: motsiPortraitThumb,
-    category: "motsi",
+    categories: ["motsi"],
     featured: true,
   },
-  {
-    id: 3,
-    title: "Themba in Oostenrijk",
-    description: "Heerlijk genieten van het uitzicht",
-    date: "2024-08-10",
-    image: thembaHeroOpt,
-    thumbnail: thembaHeroThumb,
-    category: "themba",
-    featured: false,
-  },
+  // {
+  //   id: 3,
+  //   title: "Themba in Oostenrijk",
+  //   description: "Heerlijk genieten van het uitzicht",
+  //   date: "2024-08-10",
+  //   image: thembaHeroOpt,
+  //   thumbnail: thembaHeroThumb,
+  //   categories: "themba",
+  //   featured: false,
+  // },
   {
     id: 4,
     title: "Motsi's officiële informatie",
     description: "Stamboom en gezondheidsgegevens van Motsi",
-    date: "2021-08-01",
+    date: "",
     image: motsiInfoOpt,
     thumbnail: motsiInfoThumb,
-    category: "motsi",
+    categories: ["motsi"],
     featured: false,
   },
-  // New photos from August 2024
-  {
-    id: 5,
-    title: "Themba aan het strandje",
-    description: "Themba geniet van een mooie zomerdag bij het water",
-    date: "2024-08-01",
-    image: beachOpt,
-    thumbnail: beachThumb,
-    category: "themba",
-    featured: false,
-  },
+  // {
+  //   id: 5,
+  //   title: "Themba aan het strandje",
+  //   description: "Themba geniet van een mooie zomerdag bij het water",
+  //   date: "2024-08-01",
+  //   image: beachOpt,
+  //   thumbnail: beachThumb,
+  //   categories: ["themba"],
+  //   featured: false,
+  // },
   {
     id: 6,
     title: "Themba and Bosi",
-    description: "Samen lekker camperen in de campervan",
-    date: "2024-08-02",
+    description: "Samen lekker kamperen met de camper",
+    date: "2024",
     image: campingOpt,
     thumbnail: campingThumb,
-    category: "themba",
+    categories: ["themba"],
     featured: false,
   },
-  {
-    id: 7,
-    title: "Themba met Bosi in het bos",
-    description: "Samen op avontuur tijdens een boswandeling",
-    date: "2024-08-10",
-    image: forestOpt,
-    thumbnail: forestThumb,
-    category: "themba",
-    featured: false,
-  },
+  // {
+  //   id: 7,
+  //   title: "Themba met Bosi in het bos",
+  //   description: "Samen op avontuur tijdens een boswandeling",
+  //   date: "2024-08-10",
+  //   image: forestOpt,
+  //   thumbnail: forestThumb,
+  //   categories: ["themba"],
+  //   featured: false,
+  // },
   {
     id: 8,
     title: "Spelen bij de waterrand",
-    description: "Themba en Bosi genieten van het water tijdens een warme dag",
-    date: "2024-08-10",
+    description:
+      "Themba en Bosi genieten bij het water tijdens een warme dag in Noorwegen",
+    date: "2024",
     image: waterOpt,
     thumbnail: waterThumb,
-    category: "themba",
+    categories: ["themba"],
     featured: false,
   },
   {
     id: 9,
     title: "Ochtendwandeling",
     description: "Vroeg in de ochtend, klaar voor een nieuwe dag",
-    date: "2024-08-20",
+    date: "2024",
     image: morningWalkOpt,
     thumbnail: morningWalkThumb,
-    category: "themba",
+    categories: ["themba"],
     featured: false,
   },
   {
     id: 10,
-    title: "Themba bij zonsondergang",
-    description: "Een prachtige afsluiting van een fijne dag samen",
-    date: "2024-08-20",
+    title: "Themba in Noorwegen",
+    description: "Samen op avontuur!",
+    date: "2024",
     image: sunsetOpt,
     thumbnail: sunsetThumb,
-    category: "themba",
+    categories: ["themba"],
     featured: true,
   },
+  // {
+  //   id: 11,
+  //   title: "Teefje lila",
+  //   description: "",
+  //   date: "2025-05-15",
+  //   image: lilacFemale,
+  //   thumbnail: lilacFemaleThumb,
+  //   categories: ["pups"],
+  //   featured: true,
+  // },
+  // {
+  //   id: 12,
+  //   title: "Reutje lichtblauw",
+  //   description: "",
+  //   date: "2025-05-15",
+  //   image: cyanMale,
+  //   thumbnail: cyanMaleThumb,
+  //   categories: ["pups"],
+  //   featured: true,
+  // },
+  // {
+  //   id: 13,
+  //   title: "Reutje donkerblauw",
+  //   description: "",
+  //   date: "2025-05-15",
+  //   image: blueMale,
+  //   thumbnail: blueMaleThumb,
+  //   categories: ["pups"],
+  //   featured: true,
+  // },
   {
-    id: 11,
-    title: "Teefje lila",
+    id: 15,
+    title: "Reutje groen",
     description: "",
-    date: "2025-05-15",
-    image: lilacFemale,
-    thumbnail: lilacFemaleThumb,
-    category: "pups",
-    featured: true,
+    date: "2025",
+    image: reutjeGroenOpt,
+    thumbnail: reutjeGroenThumb,
+    categories: ["pups"],
+    featured: false,
   },
   {
-    id: 12,
-    title: "Reutje lichtblauw",
+    id: 16,
+    title: "Teefje oranje",
     description: "",
-    date: "2025-05-15",
-    image: cyanMale,
-    thumbnail: cyanMaleThumb,
-    category: "pups",
-    featured: true,
+    date: "2025",
+    image: teefjeOranjeOpt,
+    thumbnail: teefjeOranjeThumb,
+    categories: ["pups"],
+    featured: false,
   },
   {
-    id: 13,
+    id: 17,
+    title: "Teefje geel",
+    description: "",
+    date: "2025",
+    image: teefjeGeelOpt,
+    thumbnail: teefjeGeelThumb,
+    categories: ["pups"],
+    featured: false,
+  },
+  {
+    id: 18,
     title: "Reutje donkerblauw",
     description: "",
-    date: "2025-05-15",
-    image: blueMale,
-    thumbnail: blueMaleThumb,
-    category: "pups",
+    date: "2025",
+    image: reutjeDonkerblauwOpt,
+    thumbnail: reutjeDonkerblauwThumb,
+    categories: ["pups"],
+    featured: false,
+  },
+  {
+    id: 19,
+    title: "Reutje paars",
+    description: "",
+    date: "2025",
+    image: reutjePaarsOpt,
+    thumbnail: reutjePaarsThumb,
+    categories: ["pups"],
+    featured: false,
+  },
+  {
+    id: 20,
+    title: "Teefje lichtblauw",
+    description: "",
+    date: "2025",
+    image: teefjeLichtblauwOpt,
+    thumbnail: teefjeLichtblauwThumb,
+    categories: ["pups"],
+    featured: false,
+  },
+  {
+    id: 21,
+    title: "Teefje rood",
+    description: "",
+    date: "2025",
+    image: teefjeRoodOpt,
+    thumbnail: teefjeRoodThumb,
+    categories: ["pups"],
+    featured: false,
+  },
+  {
+    id: 22,
+    title: "Teefje roze",
+    description: "",
+    date: "2025",
+    image: teefjeRozeOpt,
+    thumbnail: teefjeRozeThumb,
+    categories: ["pups"],
+    featured: false,
+  },
+  {
+    id: 23,
+    title: "De teefjes",
+    description: "",
+    date: "2025",
+    image: deTeefjesOpt,
+    thumbnail: deTeefjesThumb,
+    categories: ["pups", "samen"],
+    featured: true,
+  },
+  {
+    id: 24,
+    title: "De reutjes",
+    description: "",
+    date: "2025",
+    image: deReutjesOpt,
+    thumbnail: deReutjesThumb,
+    categories: ["pups", "samen"],
     featured: true,
   },
 ];
@@ -195,7 +315,9 @@ export default function PhotoGallery() {
       setFilteredPhotos(photos);
     } else {
       setFilteredPhotos(
-        sortPhotos(photos.filter((photo) => photo.category === activeFilter)),
+        sortPhotos(
+          photos.filter((photo) => photo.categories.includes(activeFilter)),
+        ),
       );
     }
   }, [activeFilter, photos]);
@@ -265,7 +387,8 @@ export default function PhotoGallery() {
                 {photo.title}
               </h3>
               <p className="text-sm text-gray-600 mb-2">
-                {new Date(photo.date).toLocaleDateString("nl-NL")}
+                {/*{new Date(photo.date).toLocaleDateString("nl-NL")}*/}
+                {photo.date}
               </p>
               <p className="text-sm text-gray-700">{photo.description}</p>
             </div>
