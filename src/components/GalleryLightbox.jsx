@@ -1,7 +1,12 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen = false, onClose = () => {} }) {
+export default function GalleryLightbox({
+  images = [],
+  initialIndex = 0,
+  isOpen = false,
+  onClose = () => {},
+}) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [open, setOpen] = useState(isOpen);
 
@@ -17,7 +22,7 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
   const prevImage = (e) => {
     e.stopPropagation(); // Prevent background click handling
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1,
     );
   };
 
@@ -25,7 +30,7 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
   const nextImage = (e) => {
     e.stopPropagation(); // Prevent background click handling
     setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
@@ -35,13 +40,13 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
       if (!open) return;
 
       switch (e.key) {
-        case 'Escape':
+        case "Escape":
           handleClose();
           break;
-        case 'ArrowLeft':
+        case "ArrowLeft":
           prevImage(e);
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           nextImage(e);
           break;
         default:
@@ -49,20 +54,20 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [open]);
 
   // Handle body overflow
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [open]);
 
@@ -118,7 +123,7 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
         <motion.img
           key={currentIndex}
           src={currentImage.src?.src || currentImage.src}
-          alt={currentImage.alt || ''}
+          alt={currentImage.alt || ""}
           className="max-h-[85vh] max-w-[85vw] object-contain cursor-default"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -134,11 +139,14 @@ export default function GalleryLightbox({ images = [], initialIndex = 0, isOpen 
             <div className="bg-black bg-opacity-70 mx-auto p-3 max-w-2xl">
               <h2 className="text-white text-xl mb-1">{currentImage.title}</h2>
               {currentImage.description && (
-                <p className="text-gray-300 text-sm">{currentImage.description}</p>
+                <p className="text-gray-300 text-sm">
+                  {currentImage.description}
+                </p>
               )}
               {currentImage.date && (
                 <p className="text-gray-400 text-xs mt-2">
-                  {new Date(currentImage.date).toLocaleDateString('nl-NL')}
+                  {/*{new Date(currentImage.date).toLocaleDateString('nl-NL')}*/}
+                  {currentImage.date}
                 </p>
               )}
             </div>
