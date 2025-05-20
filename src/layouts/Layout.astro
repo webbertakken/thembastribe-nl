@@ -1,8 +1,4 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import ImageLightbox from "../components/ImageLightbox";
-import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 
 interface Props {
@@ -22,24 +18,15 @@ const { title, description = "Themba's Tribe - Rhodesian Ridgeback" } = Astro.pr
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Themba's Tribe</title>
-    <ViewTransitions />
   </head>
   <body class="flex flex-col min-h-screen bg-slate-50 text-slate-800 md:pl-[calc(100vw-100%)]">
-    <Header />
-    <main class="flex-grow">
-      <slot />
+    <main class="flex-grow flex items-center justify-center p-8">
+      <div class="max-w-2xl text-center">
+        <h1 class="text-4xl font-bold mb-4">Website niet meer beschikbaar</h1>
+        <p class="text-xl text-slate-600">
+          Deze website is niet meer in gebruik. Bedankt voor uw interesse in Themba's Tribe.
+        </p>
+      </div>
     </main>
-    <Footer />
-    <ImageLightbox client:load />
-
-    <script is:inline>
-      // Helper function to open the lightbox with an image source
-      window.openImageLightbox = function(imageSrc) {
-        const event = new CustomEvent('openImageLightbox', {
-          detail: { src: imageSrc }
-        });
-        document.dispatchEvent(event);
-      };
-    </script>
   </body>
 </html>
