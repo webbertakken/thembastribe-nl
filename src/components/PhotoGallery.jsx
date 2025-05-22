@@ -25,7 +25,7 @@ import deTeefjesOpt from "../assets/optimized/de-teefjes-20250517_115328.webp";
 import reutjePaarsOpt from "../assets/optimized/reutje-paars-20250517_103059.webp";
 import deReutjesOpt from "../assets/optimized/de-reutjes-20250517_115831.webp";
 import teefjeLichtblauwOpt from "../assets/optimized/teefje-lichtblauw-20250517_110301.webp";
-import teefjeRoodOpt from "../assets/optimized/teefje-rood-20250517_101817.webp";
+import reutjeRoodOpt from "../assets/optimized/reutje-rood-20250517_101817.webp";
 import teefjeRozeOpt from "../assets/optimized/teefje-roze-20250516_200353.webp";
 
 // Import thumbnails
@@ -50,7 +50,7 @@ import deTeefjesThumb from "../assets/thumbnails/thumb-de-teefjes-20250517_11532
 import reutjePaarsThumb from "../assets/thumbnails/thumb-reutje-paars-20250517_103059.webp";
 import deReutjesThumb from "../assets/thumbnails/thumb-de-reutjes-20250517_115831.webp";
 import teefjeLichtblauwThumb from "../assets/thumbnails/thumb-teefje-lichtblauw-20250517_110301.webp";
-import teefjeRoodThumb from "../assets/thumbnails/thumb-teefje-rood-20250517_101817.webp";
+import reutjeRoodThumb from "../assets/thumbnails/thumb-reutje-rood-20250517_101817.webp";
 import teefjeRozeThumb from "../assets/thumbnails/thumb-teefje-roze-20250516_200353.webp";
 
 // Photo data with imported images
@@ -248,11 +248,11 @@ const photoData = [
   },
   {
     id: 21,
-    title: "Teefje rood",
+    title: "Reutje rood",
     description: "",
     date: "2025",
-    image: teefjeRoodOpt,
-    thumbnail: teefjeRoodThumb,
+    image: reutjeRoodOpt,
+    thumbnail: reutjeRoodThumb,
     categories: ["pups"],
     featured: false,
   },
